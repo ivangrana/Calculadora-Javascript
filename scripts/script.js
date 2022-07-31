@@ -48,12 +48,9 @@ document.addEventListener("keydown", keyboardInputHandler);
 
 //Função para recer os comandos do teclado
 function keyboardInputHandler(e) {
-  // to fix the default behavior of browser,
-  // enter and backspace were causing undesired behavior when some key was already in focus.
   e.preventDefault();
-  //grabbing the liveScreen
 
-  //numbers
+  //digitos do teclado
   if (e.key === "0") {
     res.value += "0";
   } else if (e.key === "1") {
@@ -78,7 +75,6 @@ function keyboardInputHandler(e) {
     res.value += "9";
   }
 
-  //operators
   if (e.key === "+") {
     res.value += "+";
   } else if (e.key === "-") {
@@ -89,20 +85,17 @@ function keyboardInputHandler(e) {
     res.value += "/";
   }
 
-  //decimal key
+  //decimal
   if (e.key === ".") {
     res.value += ".";
   }
 
-  //press enter to see result
   if (e.key === "Enter") {
     calculate(result.value);
   }
 
-  //backspace for removing the last input
   if (e.key === "Backspace") {
     const resultInput = res.value;
-    //remove the last element in the string
     res.value = resultInput.substring(0, res.value.length - 1);
   }
 }
